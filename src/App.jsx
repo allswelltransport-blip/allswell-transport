@@ -1,113 +1,143 @@
 import { motion } from "framer-motion";
-import { Truck, Shield, Clock, MapPin } from "lucide-react";
+import { ArrowRight, Clock, ShieldCheck, MapPin, Truck, Mail, Phone } from "lucide-react";
+import "./styles.css";
 
 export default function App() {
   const whatsapp = "https://wa.me/6597513276";
 
+  const services = [
+    "Airport Staff Transport",
+    "Midnight Staff Transport",
+    "Corporate Transport",
+    "Event Transport",
+    "Ad-hoc Transport",
+    "Contract Operations"
+  ];
+
+  const clients = [
+    "Lotte Duty Free",
+    "Cocoa Trees",
+    "adidas",
+    "Charles & Keith",
+    "Braun Büffel",
+    "iStudio",
+    "Marché",
+    "Ralph Lauren",
+    "WHSmith"
+  ];
+
   return (
-    <div className="bg-black text-white min-h-screen font-sans">
+    <main className="site">
+      <div className="glow glow-one" />
+      <div className="glow glow-two" />
 
-      {/* NAV */}
-      <div className="flex justify-between items-center px-6 py-4 border-b border-white/10">
-        <div className="font-semibold tracking-wide">
-          ALLSWELL TRANSPORT
-        </div>
-        <a href={whatsapp} className="bg-white text-black px-4 py-2 rounded-full text-sm">
-          WhatsApp
-        </a>
-      </div>
+      <nav className="nav">
+        <div className="brand">ALLSWELL TRANSPORT</div>
+        <a href={whatsapp} className="nav-button">WhatsApp Us</a>
+      </nav>
 
-      {/* HERO */}
-      <section className="text-center px-6 py-24">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+      <section className="hero">
+        <motion.p
+          className="eyebrow"
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl font-semibold"
+        >
+          Premium Staff Transport • Singapore • 24/7
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
         >
           Keeping Operations <br /> Moving Around the Clock
         </motion.h1>
 
-        <p className="mt-6 text-white/70 max-w-xl mx-auto">
-          Premium transport solutions for airport operations, corporate teams,
-          and businesses across Singapore — 24/7.
-        </p>
+        <motion.p
+          className="hero-text"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          Reliable, responsive and professionally coordinated transport solutions
+          for airport operations, corporate teams, events and businesses across Singapore.
+        </motion.p>
 
-        <div className="mt-8 flex justify-center gap-4">
-          <a href={whatsapp} className="bg-white text-black px-6 py-3 rounded-full">
-            Contact Us
+        <motion.div
+          className="hero-actions"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <a href={whatsapp} className="primary-button">
+            Speak With Us <ArrowRight size={18} />
           </a>
+          <a href="mailto:admin@allswelltransport.com" className="secondary-button">
+            Email Enquiry
+          </a>
+        </motion.div>
+      </section>
+
+      <section className="trust">
+        <p>Trusted by businesses across airport, retail and corporate operations</p>
+        <div className="client-grid">
+          {clients.map((client) => (
+            <span key={client}>{client}</span>
+          ))}
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="px-6 py-16">
-        <h2 className="text-2xl text-center mb-10">Services</h2>
+      <section className="section">
+        <div className="section-header">
+          <p className="eyebrow">Our Services</p>
+          <h2>Transport solutions built for operational reliability.</h2>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-
-          {[
-            "Airport Staff Transport",
-            "Midnight Staff Transport",
-            "Corporate Transport",
-            "Event Transport",
-            "Ad-hoc Transport",
-            "Contract Operations"
-          ].map((s) => (
-            <div key={s} className="border border-white/10 p-6 rounded-xl bg-white/5">
-              <Truck className="mb-3" />
-              <p>{s}</p>
+        <div className="card-grid">
+          {services.map((service) => (
+            <div className="service-card" key={service}>
+              <Truck size={28} />
+              <h3>{service}</h3>
+              <p>
+                Flexible, coordinated and scalable transport support tailored to
+                business operating needs.
+              </p>
             </div>
           ))}
-
         </div>
       </section>
 
-      {/* WHY US */}
-      <section className="px-6 py-16 border-t border-white/10">
-        <div className="grid md:grid-cols-4 text-center gap-6">
-          <div>
-            <Clock />
-            <p>24/7 Operations</p>
-          </div>
+      <section className="feature-panel">
+        <div>
+          <p className="eyebrow">Why Allswell</p>
+          <h2>Designed for businesses that cannot afford transport uncertainty.</h2>
+          <p>
+            From late-night staff movements to airport-linked operations, we focus
+            on punctuality, responsiveness, safety and smooth coordination.
+          </p>
+        </div>
 
-          <div>
-            <Shield />
-            <p>Safe & Reliable</p>
-          </div>
-
-          <div>
-            <Truck />
-            <p>Scalable Fleet</p>
-          </div>
-
-          <div>
-            <MapPin />
-            <p>Singapore Coverage</p>
-          </div>
+        <div className="feature-list">
+          <div><Clock /> 24/7 operations</div>
+          <div><ShieldCheck /> Safe & reliable coordination</div>
+          <div><Truck /> 4–6 seater cars and 13-seater vans</div>
+          <div><MapPin /> Singapore-wide coverage</div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="text-center px-6 py-20 border-t border-white/10">
-        <h2 className="text-3xl">Let’s Move Your Operations</h2>
+      <section className="cta">
+        <h2>Let’s keep your team moving.</h2>
+        <p>Available 24/7 for transport enquiries and operational coordination.</p>
 
-        <p className="text-white/60 mt-3">
-          Available 24/7 via WhatsApp
+        <div className="contact-row">
+          <a href={whatsapp}><Phone size={18} /> +65 9751 3276</a>
+          <a href="mailto:admin@allswelltransport.com"><Mail size={18} /> admin@allswelltransport.com</a>
+        </div>
+
+        <p className="address">
+          100 Jalan Sultan, #02-41, Sultan Plaza, Singapore 199001
         </p>
-
-        <a
-          href={whatsapp}
-          className="inline-block mt-6 bg-white text-black px-6 py-3 rounded-full"
-        >
-          WhatsApp Us
-        </a>
-
-        <div className="mt-10 text-white/50 text-sm">
-          <p>admin@allswelltransport.com</p>
-          <p>100 Jalan Sultan, Singapore</p>
-        </div>
       </section>
-
-    </div>
+    </main>
   );
 }
