@@ -1,4 +1,26 @@
-## 5. src/App.jsx
+import { motion } from "framer-motion";
+import { Truck, Shield, Clock, MapPin } from "lucide-react";
+
+export default function App() {
+  const whatsapp = "https://wa.me/6597513276";
+
+  return (
+    <div className="bg-black text-white min-h-screen font-sans">
+
+      {/* NAV */}
+      <div className="flex justify-between items-center px-6 py-4 border-b border-white/10">
+        <div className="font-semibold tracking-wide">
+          ALLSWELL TRANSPORT
+        </div>
+        <a href={whatsapp} className="bg-white text-black px-4 py-2 rounded-full text-sm">
+          WhatsApp
+        </a>
+      </div>
+
+      {/* HERO */}
+      <section className="text-center px-6 py-24">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-5xl font-semibold"
         >
@@ -20,6 +42,7 @@
       {/* SERVICES */}
       <section className="px-6 py-16">
         <h2 className="text-2xl text-center mb-10">Services</h2>
+
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
 
           {[
@@ -42,18 +65,40 @@
       {/* WHY US */}
       <section className="px-6 py-16 border-t border-white/10">
         <div className="grid md:grid-cols-4 text-center gap-6">
-          <div><Clock /><p>24/7 Operations</p></div>
-          <div><Shield /><p>Safe & Reliable</p></div>
-          <div><Truck /><p>Scalable Fleet</p></div>
-          <div><MapPin /><p>Singapore Coverage</p></div>
+          <div>
+            <Clock />
+            <p>24/7 Operations</p>
+          </div>
+
+          <div>
+            <Shield />
+            <p>Safe & Reliable</p>
+          </div>
+
+          <div>
+            <Truck />
+            <p>Scalable Fleet</p>
+          </div>
+
+          <div>
+            <MapPin />
+            <p>Singapore Coverage</p>
+          </div>
         </div>
       </section>
 
       {/* CTA */}
       <section className="text-center px-6 py-20 border-t border-white/10">
         <h2 className="text-3xl">Let’s Move Your Operations</h2>
-        <p className="text-white/60 mt-3">Available 24/7 via WhatsApp</p>
-        <a href={whatsapp} className="inline-block mt-6 bg-white text-black px-6 py-3 rounded-full">
+
+        <p className="text-white/60 mt-3">
+          Available 24/7 via WhatsApp
+        </p>
+
+        <a
+          href={whatsapp}
+          className="inline-block mt-6 bg-white text-black px-6 py-3 rounded-full"
+        >
           WhatsApp Us
         </a>
 
@@ -66,4 +111,3 @@
     </div>
   );
 }
-```
