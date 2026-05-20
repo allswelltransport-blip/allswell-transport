@@ -1,13 +1,14 @@
-## 6. src/styles.css
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
   margin: 0;
   background: black;
   color: white;
-  font-family: system-ui;
+  font-family: system-ui, sans-serif;
 }
-```
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
