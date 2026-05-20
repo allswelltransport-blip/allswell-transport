@@ -1,5 +1,17 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, ShieldCheck, MapPin, Truck, Mail, Phone } from "lucide-react";
+import {
+  ArrowRight,
+  Clock,
+  ShieldCheck,
+  MapPin,
+  Truck,
+  Mail,
+  Phone,
+  CarFront,
+  Building2,
+  Users,
+  Route
+} from "lucide-react";
 import "./styles.css";
 
 export default function App() {
@@ -14,26 +26,34 @@ export default function App() {
     "Contract Operations"
   ];
 
-  const clients = [
-    "Lotte Duty Free",
-    "Cocoa Trees",
-    "adidas",
-    "Charles & Keith",
-    "Braun Büffel",
-    "iStudio",
-    "Marché",
-    "Ralph Lauren",
-    "WHSmith"
+  const trustStats = [
+    { label: "Staff movements supported daily", value: "300+" },
+    { label: "Operational availability", value: "24/7" },
+    { label: "Vehicle categories", value: "4–13 seater" },
+    { label: "Singapore coverage", value: "Islandwide" }
   ];
 
   return (
     <main className="site">
-      <div className="glow glow-one" />
-      <div className="glow glow-two" />
+      <div className="orb orb-one" />
+      <div className="orb orb-two" />
+      <div className="road-light road-light-one" />
+      <div className="road-light road-light-two" />
 
       <nav className="nav">
-        <div className="brand">ALLSWELL TRANSPORT</div>
-        <a href={whatsapp} className="nav-button">WhatsApp Us</a>
+        <div className="brand">
+          <div className="brand-mark">
+            <CarFront size={22} />
+          </div>
+          <div>
+            <div className="brand-name">Allswell Transport</div>
+            <div className="brand-sub">Pte Ltd</div>
+          </div>
+        </div>
+
+        <a href={whatsapp} className="nav-button">
+          WhatsApp Us
+        </a>
       </nav>
 
       <section className="hero">
@@ -42,7 +62,7 @@ export default function App() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          Premium Staff Transport • Singapore • 24/7
+          Staff Transport • Singapore • 24/7
         </motion.p>
 
         <motion.h1
@@ -72,6 +92,7 @@ export default function App() {
           <a href={whatsapp} className="primary-button">
             Speak With Us <ArrowRight size={18} />
           </a>
+
           <a href="mailto:admin@allswelltransport.com" className="secondary-button">
             Email Enquiry
           </a>
@@ -79,10 +100,16 @@ export default function App() {
       </section>
 
       <section className="trust">
-        <p>Trusted by businesses across airport, retail and corporate operations</p>
-        <div className="client-grid">
-          {clients.map((client) => (
-            <span key={client}>{client}</span>
+        <p className="trust-title">
+          Supporting airport, retail, hospitality and corporate operations across Singapore.
+        </p>
+
+        <div className="stat-grid">
+          {trustStats.map((item) => (
+            <div className="stat-card" key={item.label}>
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </div>
           ))}
         </div>
       </section>
@@ -100,7 +127,7 @@ export default function App() {
               <h3>{service}</h3>
               <p>
                 Flexible, coordinated and scalable transport support tailored to
-                business operating needs.
+                your business operating needs.
               </p>
             </div>
           ))}
@@ -112,16 +139,18 @@ export default function App() {
           <p className="eyebrow">Why Allswell</p>
           <h2>Designed for businesses that cannot afford transport uncertainty.</h2>
           <p>
-            From late-night staff movements to airport-linked operations, we focus
-            on punctuality, responsiveness, safety and smooth coordination.
+            From late-night staff movements to airport-linked operations, we focus on
+            punctuality, responsiveness, safety and smooth coordination.
           </p>
         </div>
 
         <div className="feature-list">
-          <div><Clock /> 24/7 operations</div>
-          <div><ShieldCheck /> Safe & reliable coordination</div>
-          <div><Truck /> 4–6 seater cars and 13-seater vans</div>
-          <div><MapPin /> Singapore-wide coverage</div>
+          <div><Clock /> 24/7 operational support</div>
+          <div><ShieldCheck /> Safe and reliable coordination</div>
+          <div><CarFront /> 4–6 seater cars and 13-seater vans</div>
+          <div><Route /> Efficient route planning</div>
+          <div><Building2 /> Corporate transport experience</div>
+          <div><Users /> Driver recruitment opportunities</div>
         </div>
       </section>
 
